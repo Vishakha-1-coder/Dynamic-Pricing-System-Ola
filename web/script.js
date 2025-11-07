@@ -31,17 +31,20 @@ async function handleEstimate() {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/predict", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        origin,
-        destination,
-        vehicle_type: vehicle,
-        number_of_riders: riders,
-        number_of_drivers: drivers,
-      }),
-    });
+    const API_BASE = "https://dynamic-pricing-system-ola.onrender.com";
+
+const response = await fetch(`${API_BASE}/predict`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    origin,
+    destination,
+    vehicle_type: vehicle,
+    number_of_riders: riders,
+    number_of_drivers: drivers,
+  }),
+});
+
 
     if (!response.ok) throw new Error(await response.text());
 

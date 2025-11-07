@@ -14,7 +14,15 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MODEL_PATH = os.path.join(ROOT, "model", "dynamic_pricing_pipeline.joblib")
 
 app = FastAPI(title="Dynamic Pricing API", version="1.0")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],allow_origins=["https://dynamic-pricing-vishakha.netlify.app"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "*",  # temporary, for testing
+        "https://dynamic-pricing-vishakha.netlify.app"
+    ],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 _model = None
 

@@ -17,12 +17,13 @@ app = FastAPI(title="Dynamic Pricing API", version="1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "*",  # temporary, for testing
-        "https://dynamic-pricing-vishakha.netlify.app"
+        "https://vishakha-pricing-ai.netlify.app",  # your Netlify frontend
+        "http://localhost:5500"                     # optional for local testing
     ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 _model = None
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dynamic Ride Estimator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpAE6011LKBaYs5Rg4DAeLB74E3gZiK3U&libraries=places&callback=initMap"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="header">
+          <h1>AI Dynamic Ride Estimator</h1>
+          <p class="subtitle">Machine Learning–powered Pricing System</p>
+        </div>
+
+        <form class="form" onsubmit="return false;">
+          <label for="origin">Pickup Location</label>
+          <input id="origin" placeholder="Enter pickup location" />
+
+          <label for="destination">Destination</label>
+          <input id="destination" placeholder="Enter destination" />
+
+          <div class="row">
+            <div class="col">
+              <label>Vehicle Type</label>
+              <select id="vehicle">
+                <option>Economy</option>
+                <option>Premium</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Riders</label>
+              <input type="number" id="riders" value="60" />
+            </div>
+            <div class="col">
+              <label>Drivers</label>
+              <input type="number" id="drivers" value="25" />
+            </div>
+          </div>
+
+          <button id="estimate">Calculate Fare</button>
+
+          <div id="result" class="result hidden">
+            <div class="price">
+              <h2 id="fare">—</h2>
+              <p id="meta">Awaiting input...</p>
+            </div>
+          </div>
+        </form>
+
+        <footer>
+          <span>Developed by <strong>Vishakha Karande</strong></span><br />
+          <span>Dynamic Pricing | AI & Data Science Project</span>
+        </footer>
+      </aside>
+
+      <main class="map-container">
+        <div id="map"></div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

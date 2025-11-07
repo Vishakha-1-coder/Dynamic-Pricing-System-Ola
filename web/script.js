@@ -33,6 +33,8 @@ async function handleEstimate() {
   try {
     const API_BASE = "https://dynamic-pricing-system-ola.onrender.com";
 
+const API_BASE = "https://dynamic-pricing-system-ola-1.onrender.com";
+
 const response = await fetch(`${API_BASE}/predict`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -44,6 +46,7 @@ const response = await fetch(`${API_BASE}/predict`, {
     number_of_drivers: drivers,
   }),
 });
+
 
 
     if (!response.ok) throw new Error(await response.text());

@@ -35,14 +35,18 @@ def load_model():
     _model = joblib.load(MODEL_PATH)
     print("✅ Model loaded successfully.")
 
+from fastapi.responses import JSONResponse
+
 @app.get("/")
 def home():
-    return {
-        "message": "🚀 Dynamic Pricing API is live!",
-        "status": "running",
-        "endpoints": ["/predict", "/health"],
-        "author": "Vishakha Karande"
-    }
+    return JSONResponse(
+        content={
+            "message": "🚀 Dynamic Pricing API is live and running!",
+            "author": "Vishakha Karande",
+            "endpoints": ["/predict", "/health"],
+            "status": "success"
+        }
+    )
 
 class RideRequest(BaseModel):
     origin: str = Field(..., example="CST Station, Mumbai")

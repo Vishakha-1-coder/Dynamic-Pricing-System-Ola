@@ -35,6 +35,15 @@ def load_model():
     _model = joblib.load(MODEL_PATH)
     print("✅ Model loaded successfully.")
 
+@app.get("/")
+def home():
+    return {
+        "message": "🚀 Dynamic Pricing API is live!",
+        "status": "running",
+        "endpoints": ["/predict", "/health"],
+        "author": "Vishakha Karande"
+    }
+
 class RideRequest(BaseModel):
     origin: str = Field(..., example="CST Station, Mumbai")
     destination: str = Field(..., example="BKC, Mumbai")
